@@ -13,13 +13,13 @@ x=array[:,0:11]
 y=array[:,11]
 # build a model
 model = Sequential()
-model.add(Dense(15, input_dim=11, init='uniform', activation='relu'))
-model.add(Dense(8, init='uniform', activation='relu'))
+model.add(Dense(128, input_dim=11, init='uniform', activation='relu'))
+model.add(Dense(128, init='uniform', activation='relu'))
 model.add(Dense(1, init='uniform', activation='sigmoid'))
 #compile the model
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 #fit the model
-model.fit(x, y, nb_epoch=200, batch_size=10)
+model.fit(x, y, nb_epoch=300, batch_size=10)
 # score the model
 loss,acurracy= model.evaluate(x,y)
 print(loss,acurracy*100)
